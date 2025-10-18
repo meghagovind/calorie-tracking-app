@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Calorie Tracker - Upload or Capture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="/static/main.js" defer></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 18px; max-width: 880px; margin: auto; }
+    .controls { display:flex; gap:8px; align-items:center; margin-bottom:12px; }
+    video, canvas, img.preview { max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+    .preview { max-height:360px; object-fit:contain; }
+    button { padding:8px 12px; border-radius:6px; cursor:pointer; }
+    .muted { color:#666; font-size:0.9rem; }
+  </style>
+</head>
+<body>
+  <h1>Calorie Tracker</h1>
+
+  <p class="muted">You can either upload a photo or take one directly with your camera (mobile or desktop supporting camera).</p>
+
+  <div class="controls">
+    <button id="startCameraBtn">Start Camera</button>
+    <button id="takePhotoBtn" disabled>Take Photo</button>
+    <button id="stopCameraBtn" disabled>Stop Camera</button>
+    <label style="margin-left:8px;">
+      <input type="file" id="imageInput" accept="image/*" style="display:none" />
+      <button id="chooseFileBtn" type="button">Choose File</button>
+    </label>
+  </div>
+
+  <div id="cameraArea" style="display:none">
+    <video id="video" autoplay playsinline></video>
+    <canvas id="canvas" style="display:none"></canvas>
+  </div>
+
+  <div style="margin-top:12px">
+    <img id="preview" class="preview" alt="preview" />
+  </div>
+
+  <div id="result" style="margin-top:12px"></div>
+</body>
+</html>

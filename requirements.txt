@@ -1,0 +1,6 @@
+flask
+requests
+pillow
+python-dotenv
+ultralytics
+gunicorn
